@@ -1,0 +1,1 @@
+{'smtp_host': 'smtp.exmail.qq.com', 'smtp_port': '25', 'sender': 'systemnotice@wwwarehouse.com', 'password': 'Iscs@2016up'}
