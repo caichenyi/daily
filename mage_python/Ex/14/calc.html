@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习</title>
+</head>
+<body>
+<!--
+三个input
+1. input left
+2. input right
+3. input result
+一个按钮
+点击按钮获取第一个input的值 和 第二个input的值，将两个值的和放在第三个input中
+-->
+    <input id="left" type="text" value="">
+    <select id="operate">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input id="right" type="text" value="">
+    <input id="calc" type="button" value="=">
+    <input id="result" type="text" value="">
+    <script type="text/javascript">
+
+        var calc = function () {
+            var left = Number(document.getElementById("left").value),
+                right = Number(document.getElementById("right").value);
+                operate = document.getElementById("operate").value;
+            if(!isNaN(left) && !isNaN(right)) {
+                switch (operate)
+                {
+                    case "+":
+                        document.getElementById("result").value = left + right;
+                        break;
+                    case "-":
+                        document.getElementById("result").value = left - right;
+                        break;
+                    case "*":
+                        document.getElementById("result").value = left * right;
+                        break;
+                    case "/":
+                        document.getElementById("result").value = left / right;
+                        break;
+                }
+            } else {
+                document.getElementById("result").value = "Error";
+            }
+        };
+
+        document.getElementById("operate").onchange = calc;
+        document.getElementById("calc").onclick = calc;
+    </script>
+</body>
+</html>

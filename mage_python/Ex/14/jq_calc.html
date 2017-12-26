@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习</title>
+</head>
+<body>
+<!--
+三个input
+1. input left
+2. input right
+3. input result
+一个按钮
+点击按钮获取第一个input的值 和 第二个input的值，将两个值的和放在第三个input中
+-->
+    <input id="left" type="text" value="">
+    <select id="operate">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input id="right" type="text" value="">
+    <input id="calc" type="button" value="=">
+    <input id="result" type="text" value="">
+
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+
+        var calc = function () {
+            var left = Number(jQuery("#left").val()),
+                right = Number(jQuery("#right").val()),
+                operate = jQuery("#operate").val();
+            if(!isNaN(left) && !isNaN(right)) {
+                switch (operate)
+                {
+                    case "+":
+                        jQuery("#result").val(left + right);
+                        break;
+                    case "-":
+                        jQuery("#result").val(left - right);
+                        break;
+                    case "*":
+                        jQuery("#result").val(left * right);
+                        break;
+                    case "/":
+                        jQuery("#result").val(left / right);
+                        break;
+                }
+            } else {
+                jQuery("#result").val("Error");
+            }
+        };
+
+        jQuery("#operate").on("change", calc);
+        jQuery("#calc").on("click", calc);
+    </script>
+</body>
+</html>

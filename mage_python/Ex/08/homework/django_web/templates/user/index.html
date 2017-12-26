@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理系统</title>
+</head>
+<body>
+    <h1>登录界面</h1>
+    {{ error }}
+    <form action="/user/login/" method="post">
+        {% csrf_token %}
+        <label>用户名：</label><input type="text" name="username" value="{{ username }}"> <br /><br />
+        <label>密码：</label><input type="password" name="password" value="{{ password }}"> <br /><br />
+        <input type="submit" value="登录">
+    </form>
+    <a href="/home/index/">返回首页</a>
+</body>
+</html>
